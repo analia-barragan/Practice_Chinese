@@ -1,0 +1,51 @@
+[
+    {
+    "我": [{
+        "meaning": "I",
+        "tone": 3,
+        "pinyin": "wo"
+        }]
+    },
+    {
+    "你": [{
+        "meaning": "you",
+        "tone": 3,
+        "pinyin": "ni"
+        }]
+    },
+    {
+    "她": [{
+        "meaning": "she",
+        "tone": 1,
+        "pinyin": "ta"
+        }]
+    },
+    {
+    "他":[{
+        "meaning": "he",
+        "tone": 1,
+        "pinyin": "ta"
+        }]
+    },
+    {
+    "爱": [{
+        "meaning": "love",
+        "tone": 4,
+        "pinyin": "ai"
+        }]
+    },
+    {
+    "好": [{
+        "meaning": "good",
+        "tone": 3,
+        "pinyin": "hao"
+        }]
+    },
+    {
+    "不": [{
+        "meaning": "no",
+        "tone": 4,
+        "pinyin": "bu"
+        }]
+    }
+]
