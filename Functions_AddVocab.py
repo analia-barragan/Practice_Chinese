@@ -68,25 +68,25 @@ def add_vocabulary_multiple(vocab_dict):
         continue_asking = input('\nDo you want to add more characters? Enter Y/N: ')
 
 
-def user_promt_correct(options):
-    answers = {}
-    for opt in options:
-        user_i = input('Do you want to correct the {}?(Y/N?)'.format(opt))
-        if user_i.lower() == 'y':
-            answers[opt]= input('Please input the corrected {}'.format(opt))
-    return answers
-
-def correct_entry(vocab_dict, dict_options):
+def user_promt_correct(vocab_dict, options):
     character = input('What character do you want to correct?')
     is_there, index = check_if_in_dictionary(character, vocab_dict)
     user_feedback = vocab_dict[index].copy()
+    answers = {}
     if not is_there:
         print('This character in not in the dictionary')
     else:
-        answers = user_promt_correct(dict_options)
-        for a in answers:
-            vocab_dict[index][a] = answers[a]
-        print('The entry\n{}\nhas been replaced by\n{}'.format(user_feedback, vocab_dict[index]))
+        for opt in options:
+            user_i = input('This is the {} at the moment: {}\nDo you want to correct the {}?(Y/N)'.format(opt, user_feedback[opt], opt))
+            if user_i.lower() == 'y':
+                answers[opt]= input('Please input the corrected {}: '.format(opt))
+    return answers, user_feedback, index
+
+def correct_entry(vocab_dict, dict_options):
+    answers, original, index = user_promt_correct(vocab_dict, dict_options)
+    for a in answers:
+        vocab_dict[index][a] = answers[a]
+    print('The entry\n{}\nhas been replaced by\n{}'.format(original, vocab_dict[index]))
 
 def save_file(file_path, vocab_dict):
     '''This function saves dictionary containing vocabulary to a JSON
